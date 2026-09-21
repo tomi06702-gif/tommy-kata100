@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>英語の型100選 — 覚えるための英文法シート</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1E2A38;
+    --ink-soft: #4A5A68;
+    --paper: #EEF3EE;
+    --card: #FFFFFF;
+    --line: #D8E0D8;
+
+    --basic: #C98A16;
+    --basic-bg: #FBF1DD;
+    --expr: #1F7A70;
+    --expr-bg: #E3F2EF;
+    --adv: #B4472A;
+    --adv-bg: #FBE9E2;
+
+    --font-ja: 'Zen Maru Gothic', sans-serif;
+    --font-en: 'Space Grotesk', sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-padding-top: 76px; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-ja);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 20px 100px;
+  }
+
+  header.hero {
+    padding: 44px 4px 28px;
+  }
+
+  .kicker {
+    font-family: var(--font-en);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-size: clamp(26px, 6vw, 38px);
+    font-weight: 900;
+    margin: 0 0 12px;
+    line-height: 1.4;
+  }
+
+  h1 .en {
+    font-family: var(--font-en);
+    font-weight: 700;
+    color: var(--basic);
+  }
+
+  .hero-sub {
+    color: var(--ink-soft);
+    font-size: 15px;
+    max-width: 52ch;
+  }
+
+  /* sticky search / nav bar */
+  .toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--paper);
+    padding: 12px 4px 16px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+  }
+  .toolbar-inner { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+
+  .search-box {
+    flex: 1;
+    min-width: 180px;
+    position: relative;
+  }
+  .search-box input {
+    width: 100%;
+    font-family: var(--font-ja);
+    font-size: 15px;
+    padding: 11px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: var(--card);
+    color: var(--ink);
+    outline: none;
+  }
+  .search-box input:focus { border-color: var(--basic); }
+  .search-box input::placeholder { color: #9AA6A0; }
+
+  .nav-pills { display: flex; gap: 8px; }
+  .nav-pill {
+    font-family: var(--font-en);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 999px;
+    white-space: nowrap;
+    border: 1px solid transparent;
+    cursor: pointer;
+  }
+  .nav-pill.basic { color: var(--basic); background: var(--basic-bg); }
+  .nav-pill.expr { color: var(--expr); background: var(--expr-bg); }
+  .nav-pill.adv  { color: var(--adv); background: var(--adv-bg); }
+
+  .count-note {
+    font-family: var(--font-en);
+    font-size: 12px;
+    color: var(--ink-soft);
+    padding: 6px 4px 0;
+  }
+
+  section.group { margin-top: 36px; }
+
+  .group-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding-left: 4px;
+    margin-bottom: 16px;
+  }
+  .group-head h2 { font-size: 19px; margin: 0; font-weight: 700; }
+  .group-head .group-en {
+    font-family: var(--font-en);
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+
+  .cards { display: flex; flex-direction: column; gap: 10px; }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 16px 18px;
+    border-left: 4px solid var(--line);
+  }
+  .card.basic { border-left-color: var(--basic); }
+  .card.expr  { border-left-color: var(--expr); }
+  .card.adv   { border-left-color: var(--adv); }
+
+  .card-top {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    font-family: var(--font-en);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink-soft);
+  }
+  .card-ja {
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  .card-pattern {
+    font-family: var(--font-en);
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .card.basic .card-pattern { color: var(--basic); }
+  .card.expr  .card-pattern { color: var(--expr); }
+  .card.adv   .card-pattern { color: var(--adv); }
+
+  .card-examples { display: flex; flex-direction: column; gap: 6px; }
+  .ex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+    align-items: baseline;
+    font-size: 14.5px;
+    padding: 2px 0;
+  }
+  .ex-en { font-family: var(--font-en); font-weight: 500; }
+  .ex-ja { color: var(--ink-soft); font-size: 13px; }
+
+  .card.hidden { display: none; }
+
+  /* --- tabs --- */
+  .tabs { display: flex; gap: 8px; margin-bottom: 2px; }
+  .tab-btn {
+    font-family: var(--font-ja);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 9px 16px;
+    border-radius: 10px 10px 0 0;
+    border: 1px solid var(--line);
+    border-bottom: none;
+    background: var(--paper);
+    color: var(--ink-soft);
+    cursor: pointer;
+  }
+  .tab-btn.active { background: var(--card); color: var(--ink); }
+  .view { display: none; }
+  .view.active { display: block; }
+
+  /* --- detail (解説) view --- */
+  .usage {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    background: var(--paper);
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin: 10px 0 14px;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+  }
+  .usage .tag {
+    flex-shrink: 0;
+    font-family: var(--font-en);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 999px;
+  }
+  .card.basic .usage .tag { background: var(--basic-bg); color: var(--basic); }
+  .card.expr  .usage .tag { background: var(--expr-bg); color: var(--expr); }
+  .card.adv   .usage .tag { background: var(--adv-bg); color: var(--adv); }
+
+  .detail-card .card-pattern { font-size: 24px; }
+  .detail-card .ex { font-size: 15.5px; padding: 6px 0; border-top: 1px dashed var(--line); }
+  .detail-card .ex:first-child { border-top: none; }
+
+  .detail-card .formula {
+    background: var(--paper);
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin: 4px 0 12px;
+  }
+  .detail-card .formula-label { font-size: 12px; color: var(--ink-soft); margin-bottom: 4px; }
+  .detail-card .formula-body { font-family: var(--font-en); font-size: 16px; font-weight: 600; }
+
+  .app-section { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 14px; }
+  .app-title { font-size: 13px; font-weight: 700; color: var(--ink-soft); margin-bottom: 10px; }
+  .app-block { margin-bottom: 14px; }
+  .app-block:last-child { margin-bottom: 0; }
+  .app-label {
+    font-family: var(--font-en);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ink-soft);
+    background: var(--paper);
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-bottom: 6px;
+  }
+  .app-pattern { font-family: var(--font-en); font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+  .card.basic .app-pattern { color: var(--basic); }
+  .card.expr  .app-pattern { color: var(--expr); }
+  .card.adv   .app-pattern { color: var(--adv); }
+
+  .empty-msg {
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 14px;
+    padding: 40px 0;
+    display: none;
+  }
+
+  footer {
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-top: 56px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="hero">
+    <div class="kicker">GRAMMAR PATTERN · 001–100</div>
+    <h1>英語の型 <span class="en">100</span> — 覚えるためのシート</h1>
+    <p class="hero-sub">「私は〜です」から始まり、日常会話でよく使う型を100個まとめました。検索や絞り込みで見たい型をすぐに探せます。</p>
+  </header>
+
+  <div class="tabs">
+    <button class="tab-btn active" id="tab-btn-list" data-view="list">📋 一覧</button>
+    <button class="tab-btn" id="tab-btn-detail" data-view="detail">📖 解説</button>
+  </div>
+
+  <div class="toolbar">
+    <div class="toolbar-inner">
+      <div class="search-box">
+        <input id="search" type="text" placeholder="型・例文・日本語で検索（例：思う、can、痛い）">
+      </div>
+      <div class="nav-pills">
+        <button class="nav-pill basic" data-group="basic">基本 1–21</button>
+        <button class="nav-pill expr" data-group="expr">会話表現 22–72</button>
+        <button class="nav-pill adv" data-group="adv">応用文法 73–100</button>
+      </div>
+    </div>
+    <div class="count-note" id="count-note"></div>
+  </div>
+
+  <div class="view active" id="view-list">
+    <div id="root"></div>
+  </div>
+  <div class="view" id="view-detail">
+    <div id="root-detail"></div>
+  </div>
+  <p class="empty-msg" id="empty-msg">一致する型が見つかりません。</p>
+
+  <footer>英語の型100選 · 1〜100</footer>
+</div>
+
+<script>
+const DATA = [
+  {n:1,ja:"私は〜です",g:"basic",en:"I'm ~",ex:[["I'm a nurse.","私は看護師です"],["I'm from Osaka.","私は大阪出身です"]]},
+  {n:2,ja:"これは〜です",g:"basic",en:"This is ~",ex:[["This is my bag.","これは私のかばんです"],["This is important.","これは重要です"]]},
+  {n:3,ja:"〜します",g:"basic",en:"I ~ (現在形)",ex:[["I drink coffee every morning.","毎朝コーヒーを飲みます"],["I work at a bank.","私は銀行で働いています"]]},
+  {n:4,ja:"〜しています",g:"basic",en:"I'm ~ing",ex:[["I'm cooking dinner.","夕飯を作っています"],["I'm studying English now.","今、英語を勉強しています"]]},
+  {n:5,ja:"〜すると思います",g:"basic",en:"I think ~ will ~",ex:[["I think it will rain tomorrow.","明日は雨が降ると思います"],["I think he'll be late.","彼は遅れると思います"]]},
+  {n:6,ja:"〜するつもりです",g:"basic",en:"I'm going to ~",ex:[["I'm going to visit my parents this weekend.","今週末、両親を訪ねるつもりです"],["I'm going to start a new job next month.","来月、新しい仕事を始めるつもりです"]]},
+  {n:7,ja:"〜しました",g:"basic",en:"I ~ed",ex:[["I watched a movie yesterday.","昨日映画を見ました"],["I finished my homework.","宿題を終わらせました"]]},
+  {n:8,ja:"〜したことがあります",g:"basic",en:"I've ~ed before",ex:[["I've been to Korea.","韓国に行ったことがあります"],["I've tried sushi before.","前に寿司を食べたことがあります"]]},
+  {n:9,ja:"（もう）〜しました",g:"basic",en:"I've already ~ed",ex:[["I've already eaten lunch.","もう昼ご飯を食べました"],["I've already finished the report.","レポートはもう終わらせました"]]},
+  {n:10,ja:"〜できます①",g:"basic",en:"I can ~",ex:[["I can swim.","私は泳げます"],["I can speak a little French.","少しフランス語が話せます"]]},
+  {n:11,ja:"〜できます②",g:"basic",en:"I'm able to ~",ex:[["I'm able to work from home.","在宅勤務ができます"],["I'm able to handle this on my own.","これは一人で対応できます"]]},
+  {n:12,ja:"〜しなければならない①",g:"basic",en:"I have to ~",ex:[["I have to leave now.","もう行かなければなりません"],["I have to finish this by Friday.","金曜日までにこれを終わらせなければなりません"]]},
+  {n:13,ja:"〜しなければならない②",g:"basic",en:"I must ~",ex:[["I must call him back.","彼に折り返し電話しなければならない"],["You must be careful here.","ここでは気をつけなければならないよ"]]},
+  {n:14,ja:"〜したい①",g:"basic",en:"I want to ~",ex:[["I want to travel abroad.","海外を旅行したい"],["I want to learn how to cook.","料理を習いたい"]]},
+  {n:15,ja:"〜したいです②",g:"basic",en:"I'd like to ~",ex:[["I'd like to make a reservation.","予約をしたいのですが"],["I'd like to ask you something.","ひとつお聞きしたいのですが"]]},
+  {n:16,ja:"〜がいます/あります",g:"basic",en:"There is/are ~",ex:[["There's a cat in the garden.","庭に猫がいます"],["There are three books on the desk.","机の上に本が3冊あります"]]},
+  {n:17,ja:"〜は誰？",g:"basic",en:"Who is ~?",ex:[["Who is that man?","あの男の人は誰ですか？"],["Who is your favorite singer?","好きな歌手は誰？"]]},
+  {n:18,ja:"〜はいつ？",g:"basic",en:"When is/does ~?",ex:[["When is your birthday?","誕生日はいつ？"],["When does the movie start?","映画はいつ始まりますか？"]]},
+  {n:19,ja:"〜はどこ？",g:"basic",en:"Where is ~?",ex:[["Where is the station?","駅はどこですか？"],["Where do you live?","どこに住んでいますか？"]]},
+  {n:20,ja:"どうして〜？",g:"basic",en:"Why ~?",ex:[["Why are you late?","どうして遅れたの？"],["Why did you choose this job?","どうしてこの仕事を選んだの？"]]},
+  {n:21,ja:"〜はどう？",g:"basic",en:"How about ~? / How is ~?",ex:[["How about some coffee?","コーヒーはどう？"],["How was your trip?","旅行はどうだった？"]]},
+
+  {n:22,ja:"〜が好きです",g:"expr",en:"I like ~",ex:[["I like reading books.","本を読むのが好きです"],["I like this song.","この曲が好きです"]]},
+  {n:23,ja:"〜をいただきたいのですが",g:"expr",en:"I'd like ~, please.",ex:[["I'd like the set menu, please.","セットメニューをいただきたいのですが"],["I'd like a receipt, please.","レシートをいただきたいのですが"]]},
+  {n:24,ja:"〜しよう",g:"expr",en:"Let's ~",ex:[["Let's take a break.","休憩しよう"],["Let's go there together.","一緒にそこへ行こう"]]},
+  {n:25,ja:"〜だと思うよ①",g:"expr",en:"I think ~",ex:[["I think it's a good idea.","それはいい考えだと思うよ"],["I think she's right.","彼女は正しいと思うよ"]]},
+  {n:26,ja:"〜だと思うよ②",g:"expr",en:"I guess ~",ex:[["I guess he's busy.","彼は忙しいんだと思うよ"],["I guess it's fine.","それで大丈夫だと思うよ"]]},
+  {n:27,ja:"〜だと思うよ③",g:"expr",en:"I feel like ~",ex:[["I feel like something's wrong.","何かおかしいと思うよ"],["I feel like this is the right choice.","これが正しい選択だと思うよ"]]},
+  {n:28,ja:"〜だといいな",g:"expr",en:"I hope ~",ex:[["I hope it works out.","うまくいくといいな"],["I hope you feel better soon.","早く良くなるといいな"]]},
+  {n:29,ja:"前は〜だったよ",g:"expr",en:"I used to ~",ex:[["I used to live in Osaka.","前は大阪に住んでいたよ"],["I used to play soccer.","前はサッカーをしていたよ"]]},
+  {n:30,ja:"〜させて",g:"expr",en:"Let me ~",ex:[["Let me think about it.","考えさせて"],["Let me help you with that.","それ手伝わせて"]]},
+  {n:31,ja:"〜をありがとう",g:"expr",en:"Thank you for ~",ex:[["Thank you for your help.","手伝ってくれてありがとう"],["Thank you for coming today.","今日は来てくれてありがとう"]]},
+  {n:32,ja:"〜してごめんね",g:"expr",en:"Sorry for ~ / Sorry I ~",ex:[["I'm sorry for being late.","遅れてごめんね"],["Sorry I forgot to call you.","電話するの忘れてごめんね"]]},
+  {n:33,ja:"〜じゃない？",g:"expr",en:"Isn't it ~? / Don't you think ~?",ex:[["Isn't it cold today?","今日寒くない？"],["Don't you think that's strange?","それって変じゃない？"]]},
+  {n:34,ja:"〜わけではない",g:"expr",en:"It's not that ~",ex:[["It's not that I don't like it.","嫌いなわけではない"],["It's not that I'm angry.","怒っているわけではない"]]},
+  {n:35,ja:"そんなに〜じゃないよ",g:"expr",en:"It's not that ~",ex:[["It's not that expensive.","そんなに高くないよ"],["It's not that difficult.","そんなに難しくないよ"]]},
+  {n:36,ja:"〜すぎるよ",g:"expr",en:"It's too ~",ex:[["It's too expensive.","高すぎるよ"],["You're working too hard.","働きすぎだよ"]]},
+  {n:37,ja:"〜はずです",g:"expr",en:"~ should be ~",ex:[["He should be home by now.","彼はもう家にいるはずです"],["It should be ready soon.","もうすぐ準備できるはずです"]]},
+  {n:38,ja:"〜するはずでした",g:"expr",en:"~ was supposed to ~",ex:[["I was supposed to meet her today.","今日彼女に会うはずでした"],["The train was supposed to arrive at 9.","電車は9時に着くはずでした"]]},
+  {n:39,ja:"〜かもしれない①",g:"expr",en:"~ might ~",ex:[["It might rain later.","あとで雨が降るかもしれない"],["He might be at home.","彼は家にいるかもしれない"]]},
+  {n:40,ja:"〜かもしれない②",g:"expr",en:"~ may ~",ex:[["This may take a while.","これは時間がかかるかもしれない"],["She may not come today.","彼女は今日来ないかもしれない"]]},
+  {n:41,ja:"〜すべきだよ",g:"expr",en:"You should ~",ex:[["You should see a doctor.","病院に行くべきだよ"],["You should try this.","これ試してみるべきだよ"]]},
+  {n:42,ja:"いくら〜しても",g:"expr",en:"No matter how much ~",ex:[["No matter how much I practice, it's still hard.","いくら練習しても、まだ難しい"],["No matter how much you explain, he won't understand.","いくら説明しても、彼は理解しないよ"]]},
+  {n:43,ja:"〜のはずがない",g:"expr",en:"There's no way ~",ex:[["There's no way he said that.","彼がそんなこと言うはずがない"],["There's no way it's true.","それが本当のはずがない"]]},
+  {n:44,ja:"〜に違いない",g:"expr",en:"~ must be ~",ex:[["She must be tired.","彼女は疲れているに違いない"],["It must be true.","それは本当に違いない"]]},
+  {n:45,ja:"〜してください",g:"expr",en:"Please ~",ex:[["Please sit down.","座ってください"],["Please wait here.","ここで待ってください"]]},
+  {n:46,ja:"〜しないで",g:"expr",en:"Don't ~",ex:[["Don't worry about it.","それについて心配しないで"],["Don't touch that.","それに触らないで"]]},
+  {n:47,ja:"〜してもいい？①",g:"expr",en:"Can I ~?",ex:[["Can I open the window?","窓を開けてもいい？"],["Can I ask you something?","何か聞いてもいい？"]]},
+  {n:48,ja:"〜してもいい？②",g:"expr",en:"May I ~?",ex:[["May I use your phone?","電話を使ってもいいですか？"],["May I come in?","入ってもいいですか？"]]},
+  {n:49,ja:"〜していただけませんか？",g:"expr",en:"Could you ~?",ex:[["Could you help me with this?","これを手伝っていただけませんか？"],["Could you speak more slowly?","もう少しゆっくり話していただけませんか？"]]},
+  {n:50,ja:"〜が必要です",g:"expr",en:"I need ~",ex:[["I need more time.","もっと時間が必要です"],["I need your advice.","あなたのアドバイスが必要です"]]},
+  {n:51,ja:"どんな〜？",g:"expr",en:"What kind of ~?",ex:[["What kind of music do you like?","どんな音楽が好き？"],["What kind of person is he?","彼はどんな人？"]]},
+  {n:52,ja:"よく〜するの？",g:"expr",en:"Do you often ~?",ex:[["Do you often cook at home?","家でよく料理するの？"],["Do you often travel alone?","よく一人で旅行するの？"]]},
+  {n:53,ja:"〜そうだね①",g:"expr",en:"It looks ~",ex:[["It looks delicious.","美味しそうだね"],["It looks difficult.","難しそうだね"]]},
+  {n:54,ja:"〜そうだね②",g:"expr",en:"It sounds ~",ex:[["It sounds fun.","楽しそうだね"],["It sounds like a good plan.","いい計画そうだね"]]},
+  {n:55,ja:"〜によるよ",g:"expr",en:"It depends on ~",ex:[["It depends on the weather.","天気によるよ"],["It depends on how you look at it.","見方によるよ"]]},
+  {n:56,ja:"〜ってこと？",g:"expr",en:"Does that mean ~?",ex:[["Does that mean you're quitting?","辞めるってこと？"],["So you mean it's canceled?","つまり中止ってこと？"]]},
+  {n:57,ja:"〜に似ている",g:"expr",en:"~ is similar to ~ / looks like ~",ex:[["This song is similar to that one.","この曲はあの曲に似ている"],["She looks like her mother.","彼女はお母さんに似ている"]]},
+  {n:58,ja:"〜頑張って！",g:"expr",en:"Good luck with ~!",ex:[["Good luck with your exam!","試験頑張って！"],["Good luck with the presentation!","プレゼン頑張って！"]]},
+  {n:59,ja:"〜おめでとう！",g:"expr",en:"Congratulations on ~!",ex:[["Congratulations on your graduation!","卒業おめでとう！"],["Congratulations on your new job!","新しい仕事おめでとう！"]]},
+  {n:60,ja:"何時に〜？",g:"expr",en:"What time do/does ~?",ex:[["What time do you get up?","何時に起きるの？"],["What time does the store open?","お店は何時に開きますか？"]]},
+  {n:61,ja:"〜するようにしているよ",g:"expr",en:"I try to ~",ex:[["I try to exercise every day.","毎日運動するようにしているよ"],["I try to sleep early.","早く寝るようにしているよ"]]},
+  {n:62,ja:"〜を楽しみにしているよ",g:"expr",en:"I'm looking forward to ~",ex:[["I'm looking forward to seeing you.","会えるのを楽しみにしているよ"],["I'm looking forward to the trip.","旅行を楽しみにしているよ"]]},
+  {n:63,ja:"〜で困っているの",g:"expr",en:"I'm having trouble with ~",ex:[["I'm having trouble with this problem.","この問題で困っているの"],["I'm having trouble with my computer.","パソコンで困っているの"]]},
+  {n:64,ja:"〜なので…だ",g:"expr",en:"Since ~, ...",ex:[["Since it's raining, let's stay home.","雨なので、家にいよう"],["Since I'm busy, I can't come.","忙しいので、行けません"]]},
+  {n:65,ja:"〜だから①",g:"expr",en:"So ~ / That's why ~",ex:[["I was tired, so I went to bed early.","疲れていたから、早く寝た"],["That's why I called you.","だから電話したんだよ"]]},
+  {n:66,ja:"〜だから②",g:"expr",en:"Because ~",ex:[["I stayed home because it was raining.","雨だったから家にいた"],["I'm happy because you're here.","あなたがここにいるから嬉しい"]]},
+  {n:67,ja:"〜のとき",g:"expr",en:"When ~",ex:[["When I was a child, I lived in Kyoto.","子供のとき、京都に住んでいた"],["Call me when you arrive.","着いたときに電話して"]]},
+  {n:68,ja:"〜だって",g:"expr",en:"I heard ~ / They say ~",ex:[["I heard he's moving to Tokyo.","彼は東京に引っ越すんだって"],["They say it's going to snow tomorrow.","明日雪が降るんだって"]]},
+  {n:69,ja:"もし〜なら",g:"expr",en:"If ~",ex:[["If it rains, I'll stay home.","もし雨が降ったら、家にいるよ"],["If you need help, just tell me.","もし助けが必要なら、言ってね"]]},
+  {n:70,ja:"〜が痛い",g:"expr",en:"My ~ hurts",ex:[["My head hurts.","頭が痛い"],["My stomach hurts a little.","お腹が少し痛い"]]},
+  {n:71,ja:"…の方が〜だ",g:"expr",en:"~ is more ~ than ...",ex:[["This one is cheaper than that one.","こっちの方が安い"],["She is taller than her brother.","彼女は弟より背が高い"]]},
+  {n:72,ja:"…は最も〜だ",g:"expr",en:"~ is the most ~",ex:[["This is the most important thing.","これが最も大切なことだ"],["He is the fastest runner in the class.","彼はクラスで一番速い走者だ"]]},
+
+  {n:73,ja:"〜されている（受動態）",g:"adv",en:"~ is done",ex:[["This book is read by many people.","この本は多くの人に読まれている"],["The window was broken.","窓が割られていた"]]},
+  {n:74,ja:"〜によって〜された",g:"adv",en:"~ was done by ~",ex:[["This song was written by her.","この曲は彼女によって書かれた"],["The bridge was built by that company.","その橋はその会社によって建てられた"]]},
+  {n:75,ja:"〜している人（関係代名詞・人）",g:"adv",en:"the person who ~",ex:[["I know the person who is standing over there.","あそこに立っている人を知っています"],["She's the woman who helped me yesterday.","彼女は昨日私を助けてくれた女性です"]]},
+  {n:76,ja:"〜という物（関係代名詞・物）",g:"adv",en:"the thing that ~",ex:[["This is the book that I bought yesterday.","これは昨日買った本です"],["I lost the pen that you gave me.","あなたがくれたペンをなくしました"]]},
+  {n:77,ja:"もし〜だったら（仮定法過去）",g:"adv",en:"If I were ~, I would ~",ex:[["If I were you, I would apologize.","もし私があなたなら、謝るだろう"],["If I had more time, I would travel more.","もっと時間があれば、もっと旅行するのに"]]},
+  {n:78,ja:"もし〜だったら（仮定法過去完了）",g:"adv",en:"If I had ~ed, I would have ~ed",ex:[["If I had known, I would have helped.","知っていたら、手伝っていたのに"],["If she had studied harder, she would have passed.","もっと勉強していたら、合格していただろう"]]},
+  {n:79,ja:"〜と言っていた（伝聞）",g:"adv",en:"He said (that) ~",ex:[["He said that he was busy.","彼は忙しいと言っていた"],["She said she would call later.","彼女は後で電話すると言っていた"]]},
+  {n:80,ja:"〜かどうかわからない",g:"adv",en:"I don't know if/whether ~",ex:[["I don't know if he's coming.","彼が来るかどうかわからない"],["I'm not sure whether this is correct.","これが正しいかどうかわからない"]]},
+  {n:81,ja:"〜する前に",g:"adv",en:"Before ~",ex:[["Wash your hands before you eat.","食べる前に手を洗って"],["Before I go, let me check the schedule.","行く前に、予定を確認させて"]]},
+  {n:82,ja:"〜した後で",g:"adv",en:"After ~",ex:[["After I finish work, I'll call you.","仕事が終わった後で電話するよ"],["After eating, we went for a walk.","食べた後で、散歩に行った"]]},
+  {n:83,ja:"〜しながら",g:"adv",en:"While ~ / ~ing",ex:[["I listen to music while I study.","勉強しながら音楽を聴きます"],["She talked while smiling.","彼女は笑いながら話した"]]},
+  {n:84,ja:"〜するために",g:"adv",en:"In order to ~",ex:[["I study every day in order to pass the exam.","試験に合格するために毎日勉強する"],["He saved money in order to buy a car.","彼は車を買うためにお金を貯めた"]]},
+  {n:85,ja:"〜する代わりに",g:"adv",en:"Instead of ~ing",ex:[["Instead of driving, I took the train.","運転する代わりに、電車に乗った"],["She reads instead of watching TV.","彼女はテレビを見る代わりに本を読む"]]},
+  {n:86,ja:"〜にもかかわらず",g:"adv",en:"Even though ~ / Despite ~",ex:[["Even though it was raining, we went out.","雨だったにもかかわらず、外出した"],["Despite the difficulty, she never gave up.","難しさにもかかわらず、彼女は決してあきらめなかった"]]},
+  {n:87,ja:"〜さえすれば",g:"adv",en:"As long as ~",ex:[["As long as you try, that's enough.","挑戦しさえすれば、それで十分だ"],["As long as it's sunny, we can go hiking.","晴れさえすれば、ハイキングに行ける"]]},
+  {n:88,ja:"〜しない限り",g:"adv",en:"Unless ~",ex:[["Unless you tell me, I won't know.","あなたが言わない限り、私はわからない"],["We can't proceed unless everyone agrees.","全員が同意しない限り、進められない"]]},
+  {n:89,ja:"〜するまで",g:"adv",en:"Until ~",ex:[["Wait until I come back.","私が戻るまで待って"],["I won't give up until I succeed.","成功するまであきらめない"]]},
+  {n:90,ja:"たとえ〜でも",g:"adv",en:"Even if ~",ex:[["Even if it rains, we'll go.","たとえ雨が降っても、私たちは行く"],["Even if it's difficult, I'll try.","たとえ難しくても、挑戦するよ"]]},
+  {n:91,ja:"〜させられる（使役受身）",g:"adv",en:"I was made to ~",ex:[["I was made to wait for two hours.","2時間待たされた"],["He was made to apologize.","彼は謝らせられた"]]},
+  {n:92,ja:"〜してもらう（使役・依頼）",g:"adv",en:"I got someone to ~ / had someone ~",ex:[["I got him to fix my computer.","彼にパソコンを直してもらった"],["I had my sister help me move.","妹に引っ越しを手伝ってもらった"]]},
+  {n:93,ja:"〜されそうになる",g:"adv",en:"I almost got ~ed",ex:[["I almost got hit by a car.","車にひかれそうになった"],["She almost got caught in the rain.","彼女は雨に降られそうになった"]]},
+  {n:94,ja:"〜する羽目になる",g:"adv",en:"I ended up ~ing",ex:[["I ended up working all weekend.","週末ずっと働く羽目になった"],["We ended up walking home.","歩いて家に帰る羽目になった"]]},
+  {n:95,ja:"〜せずにはいられない",g:"adv",en:"I can't help ~ing",ex:[["I can't help laughing.","笑わずにはいられない"],["I can't help worrying about her.","彼女のことを心配せずにはいられない"]]},
+  {n:96,ja:"〜する価値がある",g:"adv",en:"It's worth ~ing",ex:[["This movie is worth watching.","この映画は見る価値がある"],["It's worth trying at least once.","一度は試す価値がある"]]},
+  {n:97,ja:"〜どころか",g:"adv",en:"Far from ~ing",ex:[["Far from apologizing, he got angry.","謝るどころか、彼は怒った"],["Far from resting, she worked all night.","休むどころか、彼女は一晩中働いた"]]},
+  {n:98,ja:"〜はもちろん",g:"adv",en:"Not to mention ~ / let alone ~",ex:[["He can speak French, not to mention English.","彼は英語はもちろん、フランス語も話せる"],["I can't even walk, let alone run.","私は走るどころか、歩くことさえできない"]]},
+  {n:99,ja:"〜てからというもの",g:"adv",en:"Ever since ~",ex:[["Ever since I moved here, I've been happier.","ここに引っ越してからというもの、幸せになった"],["Ever since she started running, she's felt healthier.","走り始めてからというもの、健康的になった"]]},
+  {n:100,ja:"言うまでもなく〜",g:"adv",en:"Needless to say, ~",ex:[["Needless to say, hard work pays off.","言うまでもなく、努力は報われる"],["Needless to say, health comes first.","言うまでもなく、健康が一番大切だ"]]}
+];
+
+const USAGE = {
+  1:"自己紹介で自分の職業や国籍を伝えるときに使う型。",
+  2:"目の前にある物や話題になっているものを紹介するときに使う。",
+  3:"習慣や事実、日常的にすることを伝えるときに使う。",
+  4:"今まさにしている最中の動作を伝えるときに使う。",
+  5:"未来の予測や見通しを伝えるときに使う。",
+  6:"すでに決めている予定や計画を伝えるときに使う。",
+  7:"過去に終わった出来事をシンプルに伝えるときに使う。",
+  8:"過去の経験の有無を伝えるときに使う。",
+  9:"たった今終わったばかりのことを伝えるときに使う。",
+  10:"生まれつき・習得した能力を伝えるときに使う。",
+  11:"状況的に可能であることを伝えるときに使う。",
+  12:"状況や決まりで必要な義務を伝えるときに使う。",
+  13:"強い義務や自分自身への戒めを伝えるときに使う。",
+  14:"自分の願望をシンプルに伝えるときに使う。",
+  15:"お店や人にお願いするとき丁寧に希望を伝える型。",
+  16:"物や人の存在を伝えるときに使う。",
+  17:"人物が誰なのか尋ねるときに使う。",
+  18:"時間や日付を尋ねるときに使う。",
+  19:"場所を尋ねるときに使う。",
+  20:"理由を尋ねるときに使う。",
+  21:"相手の意見や様子を尋ねるときに使う。",
+  22:"好きなものを伝えるときに使う。",
+  23:"レストランやお店で丁寧に注文・依頼するときに使う。",
+  24:"相手を誘うときに使う。",
+  25:"自分の意見をやわらかく伝えるときに使う。",
+  26:"確信度が少し低い推測を伝えるときに使う。",
+  27:"感覚的な意見・直感を伝えるときに使う。",
+  28:"願望や期待を込めて伝えるときに使う。",
+  29:"過去の習慣や状態を懐かしく伝えるときに使う。",
+  30:"自分にやらせてほしいと申し出るときに使う。",
+  31:"何かをしてもらったことに感謝するときに使う。",
+  32:"自分の行動を謝るときに使う。",
+  33:"相手に同意や確認を求めるときに使う。",
+  34:"誤解を解きたいときに使う。",
+  35:"相手の思い込みをやわらかく否定するときに使う。",
+  36:"程度が行き過ぎていることを伝えるときに使う。",
+  37:"状況から考えて当然そうだと伝えるときに使う。",
+  38:"予定していたが実現しなかったことを伝えるときに使う。",
+  39:"確信度が低い可能性を伝えるときに使う。",
+  40:"ややフォーマルに可能性を伝えるときに使う。",
+  41:"相手にアドバイスするときに使う。",
+  42:"何度やっても変わらない状況を強調するときに使う。",
+  43:"ありえないと強く否定するときに使う。",
+  44:"強い確信を伝えるときに使う。",
+  45:"丁寧にお願いするときに使う。",
+  46:"相手の行動をやめさせたいときに使う。",
+  47:"カジュアルに許可を求めるときに使う。",
+  48:"丁寧に許可を求めるときに使う。",
+  49:"非常に丁寧にお願いするときに使う。",
+  50:"必要なものを伝えるときに使う。",
+  51:"種類やタイプを尋ねるときに使う。",
+  52:"頻度について尋ねるときに使う。",
+  53:"見た目から感じたことを伝えるときに使う。",
+  54:"話を聞いて感じたことを伝えるときに使う。",
+  55:"状況次第であることを伝えるときに使う。",
+  56:"相手の発言の意図を確認するときに使う。",
+  57:"似ているものを比較するときに使う。",
+  58:"相手を応援するときに使う。",
+  59:"お祝いの言葉を伝えるときに使う。",
+  60:"時刻を尋ねるときに使う。",
+  61:"習慣づけている努力を伝えるときに使う。",
+  62:"楽しみにしていることを伝えるときに使う。",
+  63:"困っていることを伝えるときに使う。",
+  64:"理由から結論を導くときに使う（ややフォーマル）。",
+  65:"結果から理由を振り返るときに使う。",
+  66:"理由を説明するときに使う。",
+  67:"ある時点・タイミングを説明するときに使う。",
+  68:"人から聞いた情報を伝えるときに使う。",
+  69:"条件を伝えるときに使う。",
+  70:"体の痛みを伝えるときに使う。",
+  71:"二つを比べて程度の差を伝えるときに使う。",
+  72:"複数の中で一番であることを伝えるときに使う。",
+  73:"動作主より対象に焦点を当てて伝えるときに使う。",
+  74:"誰が行ったかを明示して伝える受動態。",
+  75:"人を後ろから説明を加えて詳しく伝えるときに使う。",
+  76:"物を後ろから説明を加えて詳しく伝えるときに使う。",
+  77:"現実とは違う仮定を伝えるときに使う。",
+  78:"過去の事実と違う仮定を伝えるときに使う。",
+  79:"誰かの発言を伝えるときに使う。",
+  80:"不確かなことを伝えるときに使う。",
+  81:"順序として前のことを伝えるときに使う。",
+  82:"順序として後のことを伝えるときに使う。",
+  83:"同時に行っている動作を伝えるときに使う。",
+  84:"目的を伝えるときに使う。",
+  85:"代わりの行動を伝えるときに使う。",
+  86:"逆接（〜なのに）を伝えるときに使う。",
+  87:"唯一の条件を伝えるときに使う。",
+  88:"条件が満たされない限り成立しないことを伝えるときに使う。",
+  89:"期限やタイミングの終わりを伝えるときに使う。",
+  90:"仮定でも変わらない結論を伝えるときに使う。",
+  91:"自分の意志と関係なくさせられたことを伝えるときに使う。",
+  92:"誰かに頼んでやってもらったことを伝えるときに使う。",
+  93:"危うく起きそうになったことを伝えるときに使う。",
+  94:"望まない結果になってしまったことを伝えるときに使う。",
+  95:"我慢できない気持ちを伝えるときに使う。",
+  96:"おすすめの価値があることを伝えるときに使う。",
+  97:"予想と正反対だったことを強調するときに使う。",
+  98:"他にもっとあることを暗示して伝えるときに使う。",
+  99:"ある出来事をきっかけに変化したことを伝えるときに使う。",
+  100:"結論として当然のことを強調するときに使う。"
+};
+
+const FORMULA = {
+  1:"主語＋Be動詞＋名詞/形容詞", 2:"This/That＋is＋名詞/形容詞", 3:"主語＋動詞（現在形）",
+  4:"主語＋be動詞＋動詞ing", 5:"I think＋主語＋will＋動詞", 6:"主語＋be動詞＋going to＋動詞",
+  7:"主語＋動詞（過去形）", 8:"主語＋have/has＋過去分詞（+before）", 9:"主語＋have/has＋already＋過去分詞",
+  10:"主語＋can＋動詞", 11:"主語＋be動詞＋able to＋動詞", 12:"主語＋have to＋動詞",
+  13:"主語＋must＋動詞", 14:"主語＋want to＋動詞", 15:"主語＋would like to＋動詞",
+  16:"There＋is/are＋名詞", 17:"Who＋is/are＋主語？", 18:"When＋is/do/does＋主語（＋動詞）？",
+  19:"Where＋is/do/does＋主語（＋動詞）？", 20:"Why＋be動詞/do/does＋主語（＋動詞）？",
+  21:"How about＋名詞/動名詞？／How is＋主語？", 22:"主語＋like＋名詞/動名詞", 23:"I'd like＋名詞,＋please.",
+  24:"Let's＋動詞", 25:"I think＋主語＋動詞", 26:"I guess＋主語＋動詞", 27:"I feel like＋主語＋動詞",
+  28:"I hope＋主語＋動詞", 29:"主語＋used to＋動詞", 30:"Let me＋動詞", 31:"Thank you for＋動名詞/名詞",
+  32:"I'm sorry for＋動名詞／Sorry I＋動詞（過去）", 33:"Isn't＋主語＋形容詞？／Don't you think＋節？",
+  34:"It's not that＋節", 35:"It's not that＋形容詞", 36:"主語＋be動詞＋too＋形容詞",
+  37:"主語＋should＋be/動詞", 38:"主語＋was/were supposed to＋動詞", 39:"主語＋might＋動詞",
+  40:"主語＋may＋動詞", 41:"You＋should＋動詞", 42:"No matter how much＋主語＋動詞, ...",
+  43:"There's no way＋節", 44:"主語＋must＋be＋形容詞/名詞", 45:"Please＋動詞", 46:"Don't＋動詞",
+  47:"Can＋I＋動詞？", 48:"May＋I＋動詞？", 49:"Could you＋動詞？", 50:"I need＋名詞/to 動詞",
+  51:"What kind of＋名詞＋do/does＋主語＋動詞？", 52:"Do you often＋動詞？", 53:"It＋looks＋形容詞",
+  54:"It＋sounds＋形容詞", 55:"It depends on＋名詞", 56:"Does that mean＋節？",
+  57:"主語＋is similar to/looks like＋名詞", 58:"Good luck with＋名詞！", 59:"Congratulations on＋名詞！",
+  60:"What time＋do/does＋主語＋動詞？", 61:"主語＋try to＋動詞", 62:"主語＋be動詞＋looking forward to＋動名詞",
+  63:"主語＋be動詞＋having trouble with＋名詞", 64:"Since＋節,＋節", 65:"節,＋so＋節／That's why＋節",
+  66:"節＋because＋節", 67:"節＋when＋節", 68:"I heard/They say＋that＋節", 69:"If＋節,＋節",
+  70:"My＋身体部位＋hurts", 71:"主語＋is＋比較級＋than＋名詞", 72:"主語＋is＋the＋最上級",
+  73:"主語＋be動詞＋過去分詞", 74:"主語＋was/were＋過去分詞＋by＋動作主", 75:"名詞（人）＋who＋動詞",
+  76:"名詞（物）＋that＋節", 77:"If＋主語＋were＋補語,＋主語＋would＋動詞",
+  78:"If＋主語＋had＋過去分詞,＋主語＋would have＋過去分詞", 79:"主語＋said (that)＋節",
+  80:"I don't know if/whether＋節", 81:"Before＋節,＋節", 82:"After＋節,＋節",
+  83:"While＋節／動詞ing,＋節", 84:"In order to＋動詞,＋節", 85:"Instead of＋動名詞,＋節",
+  86:"Even though＋節／Despite＋名詞,＋節", 87:"As long as＋節,＋節", 88:"Unless＋節,＋節",
+  89:"節＋until＋節", 90:"Even if＋節,＋節", 91:"主語＋be動詞＋made to＋動詞",
+  92:"主語＋got/had＋人＋to 動詞/動詞原形", 93:"主語＋almost got＋過去分詞", 94:"主語＋ended up＋動名詞",
+  95:"主語＋can't help＋動名詞", 96:"主語＋is worth＋動名詞", 97:"Far from＋動名詞,＋節",
+  98:"主語＋動詞,＋not to mention/let alone＋名詞", 99:"Ever since＋節,＋節", 100:"Needless to say,＋節"
+};
+
+const APP = {
+  1:{a:{label:"否定のパターン",pattern:"I'm not ~",ex:[["I'm not a teacher.","私は先生ではありません"],["I'm not tired.","私は疲れていません"]]},b:{label:"疑問のパターン",pattern:"Am I ~? / Are you ~?",ex:[["Am I right?","私は正しいですか？"],["Are you free tomorrow?","明日、時間ある？"]]}},
+  2:{a:{label:"否定形",pattern:"This isn't ~ / That isn't ~",ex:[["This isn't mine.","これは私のじゃない"],["This isn't a big deal.","これは大したことじゃない"]]},b:{label:"疑問形",pattern:"Is this ~? / Is that ~?",ex:[["Is this seat taken?","この席空いてますか？"],["Is this okay?","これで大丈夫？"]]}},
+  3:{a:{label:"否定形",pattern:"I don't ~",ex:[["I don't drink coffee.","コーヒーは飲みません"],["I don't smoke.","タバコは吸いません"]]},b:{label:"疑問形",pattern:"Do you ~?",ex:[["Do you drink coffee?","コーヒー飲む？"],["Do you work on weekends?","週末働いてるの？"]]}},
+  4:{a:{label:"否定形",pattern:"I'm not ~ing",ex:[["I'm not cooking today.","今日は料理していません"],["I'm not joking.","冗談じゃないよ"]]},b:{label:"疑問形",pattern:"Are you ~ing?",ex:[["Are you working now?","今働いてるの？"],["Are you listening?","聞いてる？"]]}},
+  5:{a:{label:"否定形",pattern:"I don't think ~ will ~",ex:[["I don't think it'll rain.","雨は降らないと思う"],["I don't think he'll come.","彼は来ないと思う"]]},b:{label:"疑問形",pattern:"Do you think ~ will ~?",ex:[["Do you think it'll rain?","雨降ると思う？"],["Do you think she'll agree?","彼女は同意すると思う？"]]}},
+  6:{a:{label:"否定形",pattern:"I'm not going to ~",ex:[["I'm not going to give up.","あきらめるつもりはない"],["I'm not going to change my mind.","考えを変えるつもりはない"]]},b:{label:"疑問形",pattern:"Are you going to ~?",ex:[["Are you going to join us?","参加するつもり？"],["Are you going to tell her?","彼女に伝えるつもり？"]]}},
+  7:{a:{label:"否定形",pattern:"I didn't ~",ex:[["I didn't go to the party.","パーティーには行かなかった"],["I didn't sleep well.","よく眠れなかった"]]},b:{label:"疑問形",pattern:"Did you ~?",ex:[["Did you see that?","それ見た？"],["Did you finish your homework?","宿題終わった？"]]}},
+  8:{a:{label:"否定形",pattern:"I've never ~ed",ex:[["I've never been to Italy.","イタリアに行ったことがない"],["I've never tried snowboarding.","スノーボードをやったことがない"]]},b:{label:"疑問形",pattern:"Have you ever ~ed?",ex:[["Have you ever been abroad?","海外に行ったことある？"],["Have you ever tried sushi?","寿司を食べたことある？"]]}},
+  9:{a:{label:"否定形",pattern:"I haven't ~ed yet",ex:[["I haven't eaten lunch yet.","まだ昼ご飯を食べていない"],["I haven't finished yet.","まだ終わっていない"]]},b:{label:"疑問形",pattern:"Have you ~ed yet?",ex:[["Have you finished yet?","もう終わった？"],["Have you eaten yet?","もう食べた？"]]}},
+  10:{a:{label:"否定形",pattern:"I can't ~",ex:[["I can't swim.","泳げません"],["I can't drive.","運転できません"]]},b:{label:"疑問形",pattern:"Can you ~?",ex:[["Can you drive?","運転できる？"],["Can you help me?","手伝ってくれる？"]]}},
+  11:{a:{label:"否定形",pattern:"I'm not able to ~",ex:[["I'm not able to attend today.","今日は参加できません"],["I'm not able to reach him.","彼に連絡が取れません"]]},b:{label:"疑問形",pattern:"Are you able to ~?",ex:[["Are you able to come tomorrow?","明日来られる？"],["Are you able to finish it today?","今日終わらせられる？"]]}},
+  12:{a:{label:"否定形",pattern:"I don't have to ~",ex:[["I don't have to work today.","今日は働かなくていい"],["I don't have to hurry.","急がなくていい"]]},b:{label:"疑問形",pattern:"Do you have to ~?",ex:[["Do you have to leave already?","もう帰らなきゃいけないの？"],["Do you have to work this weekend?","今週末働かなきゃいけないの？"]]}},
+  13:{a:{label:"否定形",pattern:"I must not ~",ex:[["You must not be late.","遅刻してはいけない"],["I must not forget this.","これを忘れてはいけない"]]},b:{label:"疑問形",pattern:"Must I ~?",ex:[["Must I answer now?","今答えなければいけませんか？"],["Must we finish today?","今日中に終わらせなければいけませんか？"]]}},
+  14:{a:{label:"否定形",pattern:"I don't want to ~",ex:[["I don't want to go.","行きたくない"],["I don't want to talk about it.","それについて話したくない"]]},b:{label:"疑問形",pattern:"Do you want to ~?",ex:[["Do you want to come with me?","一緒に来たい？"],["Do you want to try this?","これ試したい？"]]}},
+  15:{a:{label:"別の言い方",pattern:"I'd rather not ~",ex:[["I'd rather not talk about it.","それについては話したくない"],["I'd rather not decide yet.","まだ決めたくない"]]},b:{label:"疑問形",pattern:"Would you like to ~?",ex:[["Would you like to join us?","一緒に来たい？"],["Would you like some coffee?","コーヒーいかがですか？"]]}},
+  16:{a:{label:"否定形",pattern:"There isn't/aren't ~",ex:[["There isn't any milk left.","牛乳が残っていない"],["There aren't many people here.","ここにはあまり人がいない"]]},b:{label:"疑問形",pattern:"Is/Are there ~?",ex:[["Is there a bank nearby?","近くに銀行はある？"],["Are there any seats left?","席はまだある？"]]}},
+  17:{a:{label:"丁寧に尋ねる（間接疑問）",pattern:"Do you know who ~ is?",ex:[["Do you know who that is?","あの人が誰か知ってる？"],["Do you know who wrote this song?","この曲を誰が書いたか知ってる？"]]},b:{label:"答え方",pattern:"That's ~.",ex:[["That's my brother.","あれは私の兄です"],["That's the new manager.","あれが新しいマネージャーです"]]}},
+  18:{a:{label:"過去形で尋ねる",pattern:"When was ~?",ex:[["When was the last time you saw him?","最後に彼に会ったのはいつ？"],["When was your graduation?","卒業式はいつだった？"]]},b:{label:"丁寧に尋ねる（間接疑問）",pattern:"Do you know when ~?",ex:[["Do you know when the meeting starts?","会議がいつ始まるか知ってる？"],["Do you know when he'll arrive?","彼がいつ着くか知ってる？"]]}},
+  19:{a:{label:"丁寧に尋ねる",pattern:"Could you tell me where ~ is?",ex:[["Could you tell me where the restroom is?","お手洗いはどこか教えていただけますか？"],["Could you tell me where this bus goes?","このバスがどこ行きか教えていただけますか？"]]},b:{label:"過去の場所を尋ねる",pattern:"Where did you put ~?",ex:[["Where did you put my keys?","私の鍵どこに置いた？"],["Where did you go yesterday?","昨日どこに行ったの？"]]}},
+  20:{a:{label:"丁寧に理由を尋ねる",pattern:"May I ask why ~?",ex:[["May I ask why you're leaving?","なぜ辞めるのか聞いてもいいですか？"],["May I ask why it's canceled?","なぜ中止になったのか聞いてもいいですか？"]]},b:{label:"提案する言い方",pattern:"Why don't you ~?",ex:[["Why don't you take a break?","休憩したらどう？"],["Why don't we try something new?","何か新しいこと試してみない？"]]}},
+  21:{a:{label:"感想を尋ねる",pattern:"What do you think about ~?",ex:[["What do you think about this plan?","この計画についてどう思う？"],["What do you think about the movie?","その映画についてどう思う？"]]},b:{label:"経過を尋ねる",pattern:"How's ~ going?",ex:[["How's your project going?","プロジェクトの調子はどう？"],["How's your new job going?","新しい仕事はどう？"]]}},
+  22:{a:{label:"否定形",pattern:"I don't like ~",ex:[["I don't like spicy food.","辛い食べ物は好きじゃない"],["I don't like waiting.","待つのは好きじゃない"]]},b:{label:"疑問形",pattern:"Do you like ~?",ex:[["Do you like coffee?","コーヒー好き？"],["Do you like this song?","この曲好き？"]]}},
+  23:{a:{label:"断る言い方",pattern:"I don't need ~, thanks.",ex:[["I don't need a bag, thanks.","袋はいりません、ありがとう"],["I don't need a receipt, thanks.","レシートはいりません"]]},b:{label:"別の依頼表現",pattern:"Could I get ~?",ex:[["Could I get some water?","お水をもらえますか？"],["Could I get the bill, please?","お会計をお願いできますか？"]]}},
+  24:{a:{label:"否定形",pattern:"Let's not ~",ex:[["Let's not rush.","急がないでおこう"],["Let's not decide today.","今日は決めないでおこう"]]},b:{label:"疑問形（提案）",pattern:"Shall we ~?",ex:[["Shall we go now?","そろそろ行きましょうか？"],["Shall we start?","始めましょうか？"]]}},
+  25:{a:{label:"否定形",pattern:"I don't think ~",ex:[["I don't think that's a good idea.","それはいい考えじゃないと思う"],["I don't think she's coming.","彼女は来ないと思う"]]},b:{label:"疑問形",pattern:"Do you think ~?",ex:[["Do you think it's true?","それは本当だと思う？"],["Do you think he's right?","彼は正しいと思う？"]]}},
+  26:{a:{label:"別の言い方（否定的）",pattern:"I doubt ~",ex:[["I doubt he's busy.","彼が忙しいとは思えない"],["I doubt it'll work.","うまくいくとは思えない"]]},b:{label:"疑問形",pattern:"Do you suppose ~?",ex:[["Do you suppose he's okay?","彼は大丈夫だと思う？"],["Do you suppose it's true?","それは本当だと思う？"]]}},
+  27:{a:{label:"否定形",pattern:"I don't feel like ~",ex:[["I don't feel like going out today.","今日は出かける気分じゃない"],["I don't feel like eating.","食べる気分じゃない"]]},b:{label:"疑問形",pattern:"Do you feel like ~?",ex:[["Do you feel like watching a movie?","映画見る気分？"],["Do you feel like talking about it?","それについて話す気分？"]]}},
+  28:{a:{label:"否定形",pattern:"I hope ~ doesn't ~",ex:[["I hope it doesn't rain.","雨が降らないといいな"],["I hope he doesn't forget.","彼が忘れないといいな"]]},b:{label:"疑問形",pattern:"Do you hope ~?",ex:[["Do you hope to see her again?","また彼女に会えるといいと思ってる？"],["Do you hope it works out?","うまくいくといいと思ってる？"]]}},
+  29:{a:{label:"否定形",pattern:"I didn't use to ~",ex:[["I didn't use to like vegetables.","昔は野菜が好きじゃなかった"],["I didn't use to exercise.","昔は運動していなかった"]]},b:{label:"疑問形",pattern:"Did you use to ~?",ex:[["Did you use to live here?","昔ここに住んでた？"],["Did you use to play sports?","昔スポーツしてた？"]]}},
+  30:{a:{label:"否定形",pattern:"Don't let me ~",ex:[["Don't let me forget this.","これを忘れさせないで"],["Don't let me down.","がっかりさせないで"]]},b:{label:"依頼を確認する疑問形",pattern:"Will you let me ~?",ex:[["Will you let me try?","やらせてくれる？"],["Will you let me explain?","説明させてくれる？"]]}},
+  31:{a:{label:"カジュアルな言い方",pattern:"Thanks for ~!",ex:[["Thanks for the ride!","送ってくれてありがとう！"],["Thanks for listening!","聞いてくれてありがとう！"]]},b:{label:"別の感謝表現",pattern:"I really appreciate ~.",ex:[["I really appreciate your help.","手伝ってくれて本当に感謝してる"],["I really appreciate your patience.","辛抱強くいてくれて感謝してる"]]}},
+  32:{a:{label:"フォーマルな言い方",pattern:"I apologize for ~.",ex:[["I apologize for the delay.","遅れて申し訳ありません"],["I apologize for the confusion.","混乱させてしまい申し訳ありません"]]},b:{label:"許しを求める疑問形",pattern:"Can you forgive me for ~?",ex:[["Can you forgive me for being late?","遅れたこと許してくれる？"],["Can you forgive me for forgetting?","忘れたこと許してくれる？"]]}},
+  33:{a:{label:"肯定の付加疑問文",pattern:"It's ~, isn't it?",ex:[["It's cold today, isn't it?","今日寒いよね？"],["She's kind, isn't she?","彼女は優しいよね？"]]},b:{label:"否定の付加疑問文",pattern:"You don't ~, do you?",ex:[["You don't like coffee, do you?","コーヒー好きじゃないよね？"],["He isn't coming, is he?","彼は来ないんだよね？"]]}},
+  34:{a:{label:"別の言い方",pattern:"It's just that ~.",ex:[["It's just that I'm a bit tired.","ただちょっと疲れているだけ"],["It's just that I'm busy right now.","ただ今忙しいだけ"]]},b:{label:"確認する疑問形",pattern:"Are you saying that ~?",ex:[["Are you saying that I'm wrong?","私が間違ってるって言ってるの？"],["Are you saying that it's my fault?","それが私のせいだって言ってるの？"]]}},
+  35:{a:{label:"逆の程度を伝える",pattern:"It's actually pretty ~.",ex:[["It's actually pretty good.","実は結構いいよ"],["It's actually pretty easy.","実は結構簡単だよ"]]},b:{label:"確認する疑問形",pattern:"Is it really that ~?",ex:[["Is it really that expensive?","本当にそんなに高いの？"],["Is it really that hard?","本当にそんなに難しいの？"]]}},
+  36:{a:{label:"別の言い方",pattern:"It's not ~ enough.",ex:[["It's not big enough.","十分大きくない"],["It's not fast enough.","十分速くない"]]},b:{label:"疑問形",pattern:"Isn't it too ~?",ex:[["Isn't it too expensive?","高すぎない？"],["Isn't it too late?","遅すぎない？"]]}},
+  37:{a:{label:"否定形",pattern:"~ shouldn't be ~",ex:[["He shouldn't be late.","彼は遅れないはずだ"],["It shouldn't take long.","そんなに時間はかからないはずだ"]]},b:{label:"疑問形",pattern:"Should ~ be ~?",ex:[["Should it be ready by now?","もう準備できているはずでは？"],["Should he be here already?","彼はもうここにいるはずでは？"]]}},
+  38:{a:{label:"否定形",pattern:"~ wasn't supposed to ~",ex:[["It wasn't supposed to be this hard.","こんなに大変なはずじゃなかった"],["He wasn't supposed to come today.","彼は今日来るはずじゃなかった"]]},b:{label:"疑問形",pattern:"Was ~ supposed to ~?",ex:[["Was the train supposed to arrive by now?","電車はもう着いているはずでは？"],["Were you supposed to call her?","彼女に電話するはずだったんじゃないの？"]]}},
+  39:{a:{label:"否定形",pattern:"~ might not ~",ex:[["It might not rain after all.","結局雨は降らないかもしれない"],["He might not know yet.","彼はまだ知らないかもしれない"]]},b:{label:"推測を確認する疑問形",pattern:"Do you think it might ~?",ex:[["Do you think it might rain?","雨が降るかもしれないと思う？"],["Do you think he might come?","彼が来るかもしれないと思う？"]]}},
+  40:{a:{label:"否定形",pattern:"~ may not ~",ex:[["She may not agree.","彼女は同意しないかもしれない"],["It may not be true.","それは本当じゃないかもしれない"]]},b:{label:"推測を確認する疑問形",pattern:"Do you think it may ~?",ex:[["Do you think it may change?","変わるかもしれないと思う？"],["Do you think she may join?","彼女は参加するかもしれないと思う？"]]}},
+  41:{a:{label:"否定形",pattern:"You shouldn't ~",ex:[["You shouldn't skip breakfast.","朝ご飯を抜くべきじゃない"],["You shouldn't worry so much.","そんなに心配するべきじゃない"]]},b:{label:"疑問形",pattern:"Should I ~?",ex:[["Should I apologize?","謝るべきかな？"],["Should I call him first?","先に彼に電話するべきかな？"]]}},
+  42:{a:{label:"別の言い方",pattern:"However much ~",ex:[["However much I explain, he doesn't listen.","いくら説明しても、彼は聞かない"],["However much it costs, I'll buy it.","いくらかかっても買うつもりだ"]]},b:{label:"逆の程度を伝える",pattern:"Even a little ~ helps.",ex:[["Even a little practice helps.","少し練習するだけでも役に立つ"],["Even a little effort makes a difference.","少しの努力でも違いが出る"]]}},
+  43:{a:{label:"可能性を認める言い方",pattern:"It's possible that ~.",ex:[["It's possible that he forgot.","彼が忘れた可能性はある"],["It's possible that it's true.","それが本当という可能性はある"]]},b:{label:"確認する疑問形",pattern:"Is there any chance ~?",ex:[["Is there any chance he's right?","彼が正しい可能性はある？"],["Is there any chance it's true?","それが本当の可能性はある？"]]}},
+  44:{a:{label:"否定形",pattern:"~ can't be ~",ex:[["That can't be true.","それは本当のはずがない"],["He can't be serious.","彼が本気のはずがない"]]},b:{label:"疑問形",pattern:"Could ~ be ~?",ex:[["Could this be a mistake?","これは間違いの可能性がある？"],["Could she be right?","彼女が正しい可能性がある？"]]}},
+  45:{a:{label:"否定形",pattern:"Please don't ~",ex:[["Please don't be late.","遅れないでください"],["Please don't worry.","心配しないでください"]]},b:{label:"より丁寧な依頼",pattern:"Could you please ~?",ex:[["Could you please wait a moment?","少々お待ちいただけますか？"],["Could you please sign here?","ここにサインしていただけますか？"]]}},
+  46:{a:{label:"肯定形に言い換え",pattern:"You should ~ instead.",ex:[["You should rest instead.","代わりに休んだ方がいいよ"],["You should ask first instead.","代わりに先に聞いた方がいいよ"]]},b:{label:"提案する疑問形",pattern:"Why don't you stop ~ing?",ex:[["Why don't you stop worrying?","心配するのをやめたら？"],["Why don't you stop rushing?","急ぐのをやめたら？"]]}},
+  47:{a:{label:"返事の仕方",pattern:"Sure, go ahead. / Sorry, you can't.",ex:[["Sure, go ahead.","いいよ、どうぞ"],["Sorry, you can't park here.","すみません、ここに駐車できません"]]},b:{label:"より丁寧な依頼",pattern:"Could I have ~?",ex:[["Could I have a glass of water?","お水を一杯いただけますか？"],["Could I get a refund?","返金してもらえますか？"]]}},
+  48:{a:{label:"よりフォーマルな依頼",pattern:"Would it be possible to ~?",ex:[["Would it be possible to reschedule?","予定を変更することは可能でしょうか？"],["Would it be possible to see the menu?","メニューを見せていただくことは可能でしょうか？"]]},b:{label:"カジュアルな言い方",pattern:"Is it okay if I ~?",ex:[["Is it okay if I sit here?","ここに座ってもいい？"],["Is it okay if I leave early?","早く帰ってもいい？"]]}},
+  49:{a:{label:"よりカジュアルな依頼",pattern:"Can you ~?",ex:[["Can you pass me the salt?","塩を取ってくれる？"],["Can you close the door?","ドア閉めてくれる？"]]},b:{label:"断る言い方",pattern:"I'm afraid I can't.",ex:[["I'm afraid I can't make it today.","残念ながら今日は行けません"],["I'm afraid I can't help with that.","残念ながらそれは手伝えません"]]}},
+  50:{a:{label:"否定形",pattern:"I don't need ~",ex:[["I don't need any help.","助けは必要ない"],["I don't need more time.","これ以上時間は必要ない"]]},b:{label:"疑問形",pattern:"Do you need ~?",ex:[["Do you need anything?","何か必要？"],["Do you need a ride?","車で送ろうか？"]]}},
+  51:{a:{label:"選択肢を尋ねる",pattern:"Which ~ do you prefer?",ex:[["Which color do you prefer?","どの色が好き？"],["Which one do you like better?","どっちの方が好き？"]]},b:{label:"種類を説明する",pattern:"It's a kind of ~.",ex:[["It's a kind of tea.","それは一種のお茶です"],["It's a kind of exercise.","それは一種の運動です"]]}},
+  52:{a:{label:"頻度を答える",pattern:"I ~ sometimes/always.",ex:[["I cook sometimes.","たまに料理するよ"],["I always check my email in the morning.","いつも朝メールをチェックするよ"]]},b:{label:"過去の頻度を尋ねる",pattern:"Did you use to ~ a lot?",ex:[["Did you use to travel a lot?","昔よく旅行してたの？"],["Did you use to play games a lot?","昔よくゲームしてたの？"]]}},
+  53:{a:{label:"否定形",pattern:"It doesn't look ~",ex:[["It doesn't look good.","良さそうに見えない"],["It doesn't look that hard.","そんなに難しそうに見えない"]]},b:{label:"疑問形",pattern:"Does it look ~?",ex:[["Does it look okay?","大丈夫そうに見える？"],["Does it look finished?","終わってるように見える？"]]}},
+  54:{a:{label:"否定形",pattern:"It doesn't sound ~",ex:[["It doesn't sound right.","それは正しいように聞こえない"],["It doesn't sound fun.","楽しそうに聞こえない"]]},b:{label:"疑問形",pattern:"Does it sound ~?",ex:[["Does it sound familiar?","聞き覚えある？"],["Does it sound like a good plan?","いい計画に聞こえる？"]]}},
+  55:{a:{label:"否定形",pattern:"It doesn't depend on ~",ex:[["It doesn't depend on the weather.","天気には関係ないよ"],["It doesn't depend on money.","お金には関係ないよ"]]},b:{label:"疑問形",pattern:"Does it depend on ~?",ex:[["Does it depend on the price?","値段によるの？"],["Does it depend on your schedule?","あなたの予定によるの？"]]}},
+  56:{a:{label:"言い換えて確認する",pattern:"So you're saying ~?",ex:[["So you're saying it's canceled?","つまり中止ってこと？"],["So you're saying he quit?","つまり彼は辞めたってこと？"]]},b:{label:"意味を尋ねる",pattern:"What does that mean?",ex:[["What does that mean exactly?","それってどういう意味？"],["What do you mean by that?","それどういう意味？"]]}},
+  57:{a:{label:"否定形",pattern:"~ isn't similar to ~",ex:[["This isn't similar to that at all.","これはあれと全然似ていない"],["He isn't similar to his brother.","彼は兄と似ていない"]]},b:{label:"疑問形",pattern:"Is ~ similar to ~?",ex:[["Is this similar to that one?","これはあれと似てる？"],["Is she similar to her mother?","彼女はお母さんに似てる？"]]}},
+  58:{a:{label:"別の応援表現",pattern:"I'm rooting for you!",ex:[["I'm rooting for you on the exam!","試験、応援してるよ！"],["I'm rooting for your presentation!","プレゼン、応援してるよ！"]]},b:{label:"励ましの確認",pattern:"You've got this, right?",ex:[["You've got this, right?","大丈夫だよね？"],["You'll do great, won't you?","きっとうまくいくよね？"]]}},
+  59:{a:{label:"カジュアルな言い方",pattern:"Way to go on ~!",ex:[["Way to go on your promotion!","昇進おめでとう！"],["Way to go on finishing the marathon!","マラソン完走おめでとう！"]]},b:{label:"気持ちを尋ねる",pattern:"How does it feel to ~?",ex:[["How does it feel to graduate?","卒業してどんな気分？"],["How does it feel to be promoted?","昇進してどんな気分？"]]}},
+  60:{a:{label:"過去形で尋ねる",pattern:"What time did ~?",ex:[["What time did you get home?","何時に家に着いたの？"],["What time did the meeting end?","会議は何時に終わった？"]]},b:{label:"時間で答える",pattern:"At ~ o'clock.",ex:[["At seven o'clock.","7時にだよ"],["Around nine.","9時くらいだよ"]]}},
+  61:{a:{label:"否定形",pattern:"I don't try to ~",ex:[["I don't try to overthink it.","考えすぎないようにしている"],["I don't try to rush things.","物事を急ごうとはしない"]]},b:{label:"疑問形",pattern:"Do you try to ~?",ex:[["Do you try to exercise regularly?","定期的に運動するようにしてる？"],["Do you try to save money?","お金を貯めるようにしてる？"]]}},
+  62:{a:{label:"否定形",pattern:"I'm not looking forward to ~",ex:[["I'm not looking forward to the exam.","試験を楽しみにしていない"],["I'm not looking forward to Monday.","月曜日を楽しみにしていない"]]},b:{label:"疑問形",pattern:"Are you looking forward to ~?",ex:[["Are you looking forward to the trip?","旅行楽しみにしてる？"],["Are you looking forward to the weekend?","週末楽しみにしてる？"]]}},
+  63:{a:{label:"解決したことを伝える",pattern:"I'm not having trouble with ~ anymore.",ex:[["I'm not having trouble with it anymore.","もうそれで困っていない"],["I'm not having trouble with English anymore.","もう英語で困っていない"]]},b:{label:"疑問形",pattern:"Are you having trouble with ~?",ex:[["Are you having trouble with the homework?","宿題で困ってる？"],["Are you having trouble with your computer?","パソコンで困ってる？"]]}},
+  64:{a:{label:"逆接で言い換え",pattern:"Even though ~, ...",ex:[["Even though it's raining, we're going out.","雨だけど、私たちは出かける"],["Even though I'm busy, I'll help you.","忙しいけど手伝うよ"]]},b:{label:"理由を確認する疑問形",pattern:"Is it because ~?",ex:[["Is it because you're tired?","疲れてるから？"],["Is it because of the weather?","天気のせい？"]]}},
+  65:{a:{label:"理由を尋ねる",pattern:"Why is that?",ex:[["Why is that?","それはなぜ？"],["Why do you think that's the reason?","なぜそれが理由だと思うの？"]]},b:{label:"別の結論表現",pattern:"As a result, ~.",ex:[["As a result, we finished early.","その結果、早く終わった"],["As a result, sales increased.","その結果、売上が伸びた"]]}},
+  66:{a:{label:"逆接で言い換え",pattern:"Although ~, ...",ex:[["Although it was raining, we went out.","雨だったけど、外出した"],["Although I was tired, I finished it.","疲れていたけど、終わらせた"]]},b:{label:"理由を確認する疑問形",pattern:"Is that because ~?",ex:[["Is that because you were busy?","忙しかったから？"],["Is that because of the price?","値段のせい？"]]}},
+  67:{a:{label:"別表現",pattern:"Whenever ~",ex:[["Whenever I'm stressed, I take a walk.","ストレスを感じるときはいつも散歩する"],["Whenever it rains, traffic gets worse.","雨が降るといつも渋滞がひどくなる"]]},b:{label:"確認する疑問形",pattern:"Is that when ~?",ex:[["Is that when you moved here?","それがここに引っ越したときだった？"],["Is that when it happened?","それが起きたときだった？"]]}},
+  68:{a:{label:"否定形",pattern:"I didn't hear that ~",ex:[["I didn't hear that he moved.","彼が引っ越したとは聞いていない"],["I didn't hear that it's canceled.","それが中止になったとは聞いていない"]]},b:{label:"疑問形",pattern:"Did you hear that ~?",ex:[["Did you hear that she's leaving?","彼女が辞めるって聞いた？"],["Did you hear that it snowed?","雪が降ったって聞いた？"]]}},
+  69:{a:{label:"否定の条件",pattern:"If ~ not, ...",ex:[["If it doesn't rain, we'll go for a walk.","雨が降らなかったら、散歩に行こう"],["If you don't mind, I'll join you.","もし良ければ、一緒に行くよ"]]},b:{label:"仮定を尋ねる",pattern:"What if ~?",ex:[["What if it rains?","もし雨が降ったらどうする？"],["What if he says no?","もし彼がノーと言ったらどうする？"]]}},
+  70:{a:{label:"否定形",pattern:"My ~ doesn't hurt anymore.",ex:[["My head doesn't hurt anymore.","頭はもう痛くない"],["My leg doesn't hurt as much today.","今日は脚がそんなに痛くない"]]},b:{label:"疑問形",pattern:"Does your ~ hurt?",ex:[["Does your stomach hurt?","お腹痛い？"],["Does your back hurt?","背中痛い？"]]}},
+  71:{a:{label:"否定形",pattern:"~ isn't as ~ as ...",ex:[["This isn't as expensive as that one.","これはあれほど高くない"],["He isn't as tall as his brother.","彼は兄ほど背が高くない"]]},b:{label:"疑問形",pattern:"Is ~ more ~ than ...?",ex:[["Is this cheaper than that one?","これはあれより安い？"],["Is she taller than you?","彼女はあなたより背が高い？"]]}},
+  72:{a:{label:"否定形",pattern:"~ isn't the most ~",ex:[["This isn't the most expensive option.","これは最も高い選択肢ではない"],["He isn't the fastest runner.","彼は一番速い走者ではない"]]},b:{label:"疑問形",pattern:"Is ~ the most ~?",ex:[["Is this the most popular choice?","これが一番人気の選択肢？"],["Is he the tallest in the class?","彼はクラスで一番背が高い？"]]}},
+  73:{a:{label:"否定形",pattern:"~ isn't/wasn't done",ex:[["This isn't used anymore.","これはもう使われていない"],["The email wasn't sent.","メールは送られなかった"]]},b:{label:"疑問形",pattern:"Is/Was ~ done?",ex:[["Is this made in Japan?","これは日本で作られたの？"],["Was the report finished?","レポートは仕上げられた？"]]}},
+  74:{a:{label:"否定形",pattern:"~ wasn't done by ~",ex:[["This wasn't written by her.","これは彼女によって書かれたものではない"],["It wasn't built by that company.","それはその会社によって建てられたものではない"]]},b:{label:"疑問形",pattern:"Was ~ done by ~?",ex:[["Was this designed by him?","これは彼がデザインしたの？"],["Was the bridge built by a Japanese company?","その橋は日本の会社が建てたの？"]]}},
+  75:{a:{label:"否定形",pattern:"the person who doesn't ~",ex:[["I don't know the person who called.","電話してきた人を知らない"],["She's not the person who did this.","彼女はこれをした人ではない"]]},b:{label:"疑問形",pattern:"Is he/she the person who ~?",ex:[["Is he the person who helped you?","彼があなたを助けた人？"],["Is she the one who called earlier?","彼女がさっき電話してきた人？"]]}},
+  76:{a:{label:"否定形",pattern:"not the thing that ~",ex:[["This isn't the book that I ordered.","これは私が注文した本じゃない"],["That's not the thing that broke.","それは壊れたものじゃない"]]},b:{label:"疑問形",pattern:"Is this the thing that ~?",ex:[["Is this the pen that you lost?","これはあなたがなくしたペン？"],["Is that the restaurant that you mentioned?","それがあなたが言ってたレストラン？"]]}},
+  77:{a:{label:"否定形",pattern:"If I weren't ~, I wouldn't ~",ex:[["If I weren't so busy, I would help you.","もしそんなに忙しくなかったら、手伝うのに"],["If I weren't tired, I would go out.","もし疲れていなかったら、出かけるのに"]]},b:{label:"疑問形",pattern:"What would you do if you were ~?",ex:[["What would you do if you were me?","もしあなたが私だったらどうする？"],["What would you do if you were in charge?","もし責任者だったらどうする？"]]}},
+  78:{a:{label:"否定形",pattern:"If I hadn't ~ed, I wouldn't have ~ed",ex:[["If I hadn't studied, I wouldn't have passed.","勉強していなかったら、合格していなかった"],["If I hadn't left early, I would have missed the train.","早く出発していなかったら、電車に乗り遅れていた"]]},b:{label:"疑問形",pattern:"What would have happened if ~?",ex:[["What would have happened if you had said no?","もしノーと言っていたらどうなっていた？"],["What would have happened if it had rained?","もし雨が降っていたらどうなっていた？"]]}},
+  79:{a:{label:"否定形",pattern:"He didn't say (that) ~",ex:[["He didn't say he was coming.","彼は来るとは言わなかった"],["She didn't say it was canceled.","彼女はそれが中止になったとは言わなかった"]]},b:{label:"疑問形",pattern:"Did he say (that) ~?",ex:[["Did he say he was busy?","彼は忙しいと言っていた？"],["Did she say when she'd arrive?","彼女はいつ着くか言っていた？"]]}},
+  80:{a:{label:"逆に知っていることを伝える",pattern:"I know whether ~.",ex:[["I know whether he's coming or not.","彼が来るかどうか知っている"],["I know if it's true.","それが本当かどうか知っている"]]},b:{label:"疑問形",pattern:"Do you know if ~?",ex:[["Do you know if he's coming?","彼が来るかどうか知ってる？"],["Do you know whether it's true?","それが本当かどうか知ってる？"]]}},
+  81:{a:{label:"よりフォーマルな言い方",pattern:"Prior to ~ing, ...",ex:[["Prior to leaving, please turn off the lights.","出発する前に、電気を消してください"],["Prior to the meeting, I reviewed the notes.","会議の前に、メモを見直した"]]},b:{label:"疑問形",pattern:"Do you do anything before ~?",ex:[["Do you do anything before you sleep?","寝る前に何かする？"],["Do you check anything before you leave?","出かける前に何か確認する？"]]}},
+  82:{a:{label:"よりフォーマルな言い方",pattern:"Following ~, ...",ex:[["Following the meeting, we had lunch.","会議の後、昼食をとった"],["Following his advice, I changed my plan.","彼のアドバイスに従って、計画を変えた"]]},b:{label:"疑問形",pattern:"What do you do after ~?",ex:[["What do you do after work?","仕事の後何をするの？"],["What did you do after the exam?","試験の後何をしたの？"]]}},
+  83:{a:{label:"別表現",pattern:"As ~, ...",ex:[["As I was walking, it started to rain.","歩いている間に、雨が降り出した"],["As she spoke, everyone listened.","彼女が話す間、みんな聞いていた"]]},b:{label:"疑問形",pattern:"What do you do while ~?",ex:[["What do you do while commuting?","通勤中何をするの？"],["What do you do while waiting?","待っている間何をするの？"]]}},
+  84:{a:{label:"よりカジュアルな言い方",pattern:"To ~, ...",ex:[["To pass the exam, I study every day.","試験に合格するために、毎日勉強する"],["To save money, he cooks at home.","お金を節約するために、彼は家で料理する"]]},b:{label:"疑問形",pattern:"What do you do in order to ~?",ex:[["What do you do in order to relax?","リラックスするために何をするの？"],["What do you do in order to stay healthy?","健康を保つために何をするの？"]]}},
+  85:{a:{label:"別表現",pattern:"Rather than ~ing, ...",ex:[["Rather than complaining, try to fix it.","文句を言うより、直そうとしてみて"],["Rather than waiting, I decided to act.","待つより、行動することにした"]]},b:{label:"疑問形",pattern:"What do you do instead of ~ing?",ex:[["What do you do instead of driving?","運転する代わりに何をするの？"],["What do you do instead of eating out?","外食する代わりに何をするの？"]]}},
+  86:{a:{label:"別表現",pattern:"In spite of ~, ...",ex:[["In spite of the rain, we went out.","雨にもかかわらず、外出した"],["In spite of being tired, she kept working.","疲れているにもかかわらず、彼女は働き続けた"]]},b:{label:"疑問形",pattern:"Did you ~ even though ~?",ex:[["Did you go even though it was raining?","雨が降っていたのに行ったの？"],["Did you finish it despite being busy?","忙しかったのにそれを終わらせたの？"]]}},
+  87:{a:{label:"別表現",pattern:"So long as ~",ex:[["So long as you're happy, that's all that matters.","あなたが幸せなら、それが一番大事なことだ"],["So long as it's safe, we can proceed.","安全である限り、進められる"]]},b:{label:"疑問形",pattern:"Is it okay as long as ~?",ex:[["Is it okay as long as I finish by Friday?","金曜日までに終われば大丈夫？"],["Is it fine as long as we're on time?","時間通りなら大丈夫？"]]}},
+  88:{a:{label:"別表現",pattern:"If ~ not, ...",ex:[["If you don't hurry, you'll be late.","急がないと遅れるよ"],["If we don't agree, we can't proceed.","同意しないと進められない"]]},b:{label:"疑問形",pattern:"What happens unless ~?",ex:[["What happens unless we finish today?","今日終わらせないとどうなる？"],["What happens unless he agrees?","彼が同意しないとどうなる？"]]}},
+  89:{a:{label:"カジュアルな言い方",pattern:"Till ~",ex:[["Stay here till I come back.","私が戻るまでここにいて"],["Wait till the light turns green.","信号が青になるまで待って"]]},b:{label:"疑問形",pattern:"How long until ~?",ex:[["How long until the train arrives?","電車が来るまでどれくらい？"],["How long until we get there?","そこに着くまでどれくらい？"]]}},
+  90:{a:{label:"別表現",pattern:"No matter what ~",ex:[["No matter what happens, I'll support you.","何が起きても、あなたを支えるよ"],["No matter what he says, don't worry.","彼が何を言っても、心配しないで"]]},b:{label:"疑問形",pattern:"Would you still ~ even if ~?",ex:[["Would you still go even if it rains?","雨が降っても行く？"],["Would you still help me even if it's hard?","難しくても手伝ってくれる？"]]}},
+  91:{a:{label:"否定形",pattern:"I wasn't made to ~",ex:[["I wasn't made to apologize.","謝らせられたわけじゃない"],["He wasn't made to work overtime.","彼は残業させられたわけじゃない"]]},b:{label:"疑問形",pattern:"Were you made to ~?",ex:[["Were you made to wait long?","長く待たされた？"],["Was she made to redo it?","彼女はやり直させられた？"]]}},
+  92:{a:{label:"否定形",pattern:"I didn't get anyone to ~",ex:[["I didn't get anyone to help me.","誰にも手伝ってもらわなかった"],["I didn't have him fix it.","彼に直してもらわなかった"]]},b:{label:"疑問形",pattern:"Did you get someone to ~?",ex:[["Did you get someone to check it?","誰かにチェックしてもらった？"],["Did you have her help you?","彼女に手伝ってもらった？"]]}},
+  93:{a:{label:"実際に起きたことを伝える",pattern:"I actually got ~ed.",ex:[["I actually got caught in the rain.","実際に雨に降られた"],["I actually got stuck in traffic.","実際に渋滞にはまった"]]},b:{label:"疑問形",pattern:"Did you almost get ~ed?",ex:[["Did you almost get hit?","ひかれそうになった？"],["Did you almost get caught?","捕まりそうになった？"]]}},
+  94:{a:{label:"望んだ結果を伝える",pattern:"I managed to ~.",ex:[["I managed to finish on time.","なんとか時間通りに終わらせた"],["I managed to avoid the traffic.","渋滞を避けられた"]]},b:{label:"疑問形",pattern:"Did you end up ~ing?",ex:[["Did you end up staying late?","結局遅くまで残ることになった？"],["Did you end up walking home?","結局歩いて帰ることになった？"]]}},
+  95:{a:{label:"我慢できたことを伝える",pattern:"I managed not to ~.",ex:[["I managed not to laugh.","なんとか笑わずに済んだ"],["I managed not to cry.","なんとか泣かずに済んだ"]]},b:{label:"疑問形",pattern:"Do you ever ~ without meaning to?",ex:[["Do you ever laugh without meaning to?","つい笑っちゃうことある？"],["Do you ever worry without meaning to?","つい心配しちゃうことある？"]]}},
+  96:{a:{label:"否定形",pattern:"It's not worth ~ing",ex:[["It's not worth arguing about.","それは議論する価値がない"],["It's not worth the money.","それはそのお金の価値がない"]]},b:{label:"疑問形",pattern:"Is it worth ~ing?",ex:[["Is it worth trying?","試す価値はある？"],["Is it worth the risk?","そのリスクを取る価値はある？"]]}},
+  97:{a:{label:"別表現",pattern:"Anything but ~.",ex:[["The test was anything but easy.","そのテストは簡単どころではなかった"],["He's anything but lazy.","彼は怠け者どころではない"]]},b:{label:"疑問形",pattern:"Isn't that far from ~ing?",ex:[["Isn't that far from finished?","それは完成にはほど遠くない？"],["Isn't that far from easy?","それは簡単にはほど遠くない？"]]}},
+  98:{a:{label:"別表現",pattern:"To say nothing of ~.",ex:[["He speaks three languages, to say nothing of his coding skills.","彼は3か国語を話す、コーディングスキルは言うまでもなく"],["She's great at singing, to say nothing of dancing.","彼女は歌が上手だ、ダンスは言うまでもなく"]]},b:{label:"疑問形",pattern:"Can you even ~, let alone ~?",ex:[["Can you even walk, let alone run?","走るどころか歩けるの？"],["Can you even boil water, let alone cook a meal?","料理どころかお湯を沸かせるの？"]]}},
+  99:{a:{label:"別表現",pattern:"From the moment ~, ...",ex:[["From the moment I met her, I knew.","彼女に出会った瞬間から、わかっていた"],["From the moment he started, things improved.","彼が始めた瞬間から、状況は良くなった"]]},b:{label:"疑問形",pattern:"Has ~ changed ever since ~?",ex:[["Has your routine changed ever since you moved?","引っ越してから習慣は変わった？"],["Has anything changed ever since he joined?","彼が入ってから何か変わった？"]]}},
+  100:{a:{label:"別表現",pattern:"It goes without saying that ~.",ex:[["It goes without saying that health comes first.","健康が一番大切なのは言うまでもない"],["It goes without saying that practice matters.","練習が大事なのは言うまでもない"]]},b:{label:"疑問形",pattern:"Isn't it obvious that ~?",ex:[["Isn't it obvious that he's right?","彼が正しいのは明らかじゃない？"],["Isn't it obvious that we need a break?","休憩が必要なのは明らかじゃない？"]]}}
+};
+
+const GROUPS = [
+  {key:"basic", title:"基本", en:"BASIC TENSES & QUESTIONS · 1–21"},
+  {key:"expr",  title:"会話でよく使う表現", en:"EVERYDAY EXPRESSIONS · 22–72"},
+  {key:"adv",   title:"応用文法", en:"ADVANCED STRUCTURES · 73–100"}
+];
+
+function escapeHtml(s) {
+  return s.replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+}
+
+function searchBlob(d) {
+  return escapeHtml((d.ja + ' ' + d.en + ' ' + (USAGE[d.n]||'') + ' ' + d.ex.map(e=>e[0]+' '+e[1]).join(' ')).toLowerCase());
+}
+
+function render() {
+  const root = document.getElementById('root');
+  root.innerHTML = GROUPS.map(g => {
+    const items = DATA.filter(d => d.g === g.key);
+    const cards = items.map(d => `
+      <div class="card ${d.g}" data-search="${searchBlob(d)}">
+        <div class="card-top">
+          <span class="card-num">No.${d.n}</span>
+          <span class="card-ja">${escapeHtml(d.ja)}</span>
+        </div>
+        <div class="card-pattern">${escapeHtml(d.en)}</div>
+        <div class="card-examples">
+          ${d.ex.map(e => `<div class="ex"><span class="ex-en">${escapeHtml(e[0])}</span><span class="ex-ja">${escapeHtml(e[1])}</span></div>`).join('')}
+        </div>
+      </div>
+    `).join('');
+    return `
+      <section class="group" id="group-${g.key}">
+        <div class="group-head">
+          <h2>${g.title}</h2>
+          <span class="group-en">${g.en}</span>
+        </div>
+        <div class="cards">${cards}</div>
+      </section>
+    `;
+  }).join('');
+}
+
+function renderDetail() {
+  const root = document.getElementById('root-detail');
+  root.innerHTML = GROUPS.map(g => {
+    const items = DATA.filter(d => d.g === g.key);
+    const cards = items.map(d => {
+      const app = APP[d.n];
+      return `
+      <div class="card detail-card ${d.g}" data-search="${searchBlob(d)}">
+        <div class="card-top">
+          <span class="card-num">No.${d.n}</span>
+          <span class="card-ja">${escapeHtml(d.ja)}</span>
+        </div>
+        <div class="card-pattern">${escapeHtml(d.en)}</div>
+        <div class="formula">
+          <div class="formula-label">基本パターン</div>
+          <div class="formula-body">${escapeHtml(FORMULA[d.n] || '')}</div>
+        </div>
+        <div class="usage"><span class="tag">こんな時に使える</span><span>${escapeHtml(USAGE[d.n] || '')}</span></div>
+        <div class="card-examples">
+          ${d.ex.map(e => `<div class="ex"><span class="ex-en">${escapeHtml(e[0])}</span><span class="ex-ja">${escapeHtml(e[1])}</span></div>`).join('')}
+        </div>
+        ${app ? `
+        <div class="app-section">
+          <div class="app-title">応用</div>
+          <div class="app-block">
+            <span class="app-label">${escapeHtml(app.a.label)}</span>
+            <div class="app-pattern">${escapeHtml(app.a.pattern)}</div>
+            <div class="card-examples">
+              ${app.a.ex.map(e => `<div class="ex"><span class="ex-en">${escapeHtml(e[0])}</span><span class="ex-ja">${escapeHtml(e[1])}</span></div>`).join('')}
+            </div>
+          </div>
+          <div class="app-block">
+            <span class="app-label">${escapeHtml(app.b.label)}</span>
+            <div class="app-pattern">${escapeHtml(app.b.pattern)}</div>
+            <div class="card-examples">
+              ${app.b.ex.map(e => `<div class="ex"><span class="ex-en">${escapeHtml(e[0])}</span><span class="ex-ja">${escapeHtml(e[1])}</span></div>`).join('')}
+            </div>
+          </div>
+        </div>` : ''}
+      </div>
+    `;
+    }).join('');
+    return `
+      <section class="group" id="group-${g.key}-d">
+        <div class="group-head">
+          <h2>${g.title}</h2>
+          <span class="group-en">${g.en}</span>
+        </div>
+        <div class="cards">${cards}</div>
+      </section>
+    `;
+  }).join('');
+}
+
+function filterCards(query) {
+  const q = query.trim().toLowerCase();
+  const cards = document.querySelectorAll('.card');
+  let visible = 0;
+  const activeView = document.getElementById('view-list').classList.contains('active') ? 'list' : 'detail';
+  cards.forEach(c => {
+    const match = !q || c.dataset.search.includes(q);
+    c.classList.toggle('hidden', !match);
+    if (match && c.closest(activeView === 'list' ? '#view-list' : '#view-detail')) visible++;
+  });
+  document.querySelectorAll('.group').forEach(sec => {
+    const anyVisible = Array.from(sec.querySelectorAll('.card')).some(c => !c.classList.contains('hidden'));
+    sec.style.display = anyVisible ? '' : 'none';
+  });
+  const totalInView = document.querySelectorAll(`#${activeView === 'list' ? 'view-list' : 'view-detail'} .card`).length;
+  document.getElementById('empty-msg').style.display = (q && visible === 0) ? 'block' : 'none';
+  document.getElementById('count-note').textContent = q ? `${visible} / ${totalInView} 件` : '';
+}
+
+function setActiveView(view) {
+  document.getElementById('view-list').classList.toggle('active', view === 'list');
+  document.getElementById('view-detail').classList.toggle('active', view === 'detail');
+  document.getElementById('tab-btn-list').classList.toggle('active', view === 'list');
+  document.getElementById('tab-btn-detail').classList.toggle('active', view === 'detail');
+  filterCards(document.getElementById('search').value);
+}
+
+render();
+renderDetail();
+
+document.getElementById('search').addEventListener('input', e => filterCards(e.target.value));
+document.getElementById('tab-btn-list').addEventListener('click', () => setActiveView('list'));
+document.getElementById('tab-btn-detail').addEventListener('click', () => setActiveView('detail'));
+document.querySelectorAll('.nav-pill').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const activeView = document.getElementById('view-list').classList.contains('active') ? 'list' : 'detail';
+    const suffix = activeView === 'list' ? '' : '-d';
+    const target = document.getElementById(`group-${btn.dataset.group}${suffix}`);
+    if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+</script>
+</body>
+</html>
